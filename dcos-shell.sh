@@ -27,8 +27,12 @@ do
       run* )
           run_command=${user_command:4}
           # dcos maraton ...
-          echo "Launching $run_command"
+          echo "Executing `$run_command` in the DCOS cluster"
       ;;
+      h*)
+          dcos
+      ;;
+      
       * )
           eval "dcos $user_command"
       ;;
