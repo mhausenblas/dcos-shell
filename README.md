@@ -49,3 +49,10 @@ If you are in the DCOS shell and enter a [valid command](https://docs.mesosphere
     webserver        10.0.0.25  root    R    webserver.965b95de-fead-11e5-8372-563434eea9f8
     webserver        10.0.0.25  root    R    webserver.965be400-fead-11e5-8372-563434eea9f8
     webserver        10.0.0.25  root    R    webserver.965c0b12-fead-11e5-8372-563434eea9f8
+
+## To do
+
+- implement `run` command
+- put it into a Docker image
+- catch edge cases
+- extend docs

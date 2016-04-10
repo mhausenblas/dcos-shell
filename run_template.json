@@ -1,0 +1,7 @@
+{
+    "id": "ID", 
+    "cmd": "COMMAND",
+    "cpus": 0.1,
+    "mem": 200,
+    "instances": 1
+}
