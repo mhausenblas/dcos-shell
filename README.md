@@ -14,8 +14,8 @@ A simple shell for DCOS.
 If you are in the DCOS shell and type `run ...` then whatever comes after run will be executed in the DCOS cluster (a bit like distributed shells like `dsh` or `clush`):
 
     $ ./dcos-shell.sh
-    [sf42-pro]$ run env > env.txt && cp env.txt /tmp
-    Executing `env > env.txt && cp env.txt /tmp` in the DCOS cluster
+    [sf42-pro]$ run while [ true ] ; do echo "Hello DCOS" ; sleep 5 ; done
+    Executing: while [ true ] ; do echo "Hello DCOS" ; sleep 5 ; done
 
 ### Calling DCOS CLI commands
 
@@ -53,6 +53,8 @@ If you are in the DCOS shell and enter a [valid command](https://docs.mesosphere
 ## To do
 
 - implement `run` command
+- implement `ls` command
+- implement `kill` command
 - put it into a Docker image
 - catch edge cases
 - extend docs

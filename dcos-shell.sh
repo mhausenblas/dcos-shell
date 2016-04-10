@@ -17,7 +17,6 @@ DCOS_CLUSTER_ID=${DCOS_CLUSTER_URL:20:8}
 # echo $DCOS_CLUSTER_ID
 DCOS_CLI_PROMPT="[$DCOS_CLUSTER_ID]$"
 
-
 run_distributed_command () {
     user_command=$1
     if [ ! -d "$COMMAND_DIR" ]; then
@@ -26,9 +25,9 @@ run_distributed_command () {
     # CMD_ID=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32)
     CMD_ID=43887542420cebdde8efa545ce9a1fb7
     cp run_template.json $COMMAND_DIR/$CMD_ID.json
-    sed -i 's/ID/$CMD_ID/g' $COMMAND_DIR/$CMD_ID.json
-    sed -i 's/COMMAND/$user_command/g' $COMMAND_DIR/$CMD_ID.json
-    # dcos marathon app add $CMD_ID.json
+    sed -i '' "s/ID/$CMD_ID/g" $COMMAND_DIR/$CMD_ID.json
+    sed -i '' "s/COMMAND/$user_command/g" $COMMAND_DIR/$CMD_ID.json
+    dcos marathon app add $COMMAND_DIR/$CMD_ID.json
 }
 
 # source ./bin/env-setup
@@ -45,13 +44,12 @@ do
       ;;
       run* )
           run_command=${user_command:4}
-          echo 'Executing' $run_command 'in the DCOS cluster ...'
+          echo 'Executing:' $run_command
           run_distributed_command $run_command
       ;;
       h*)
           dcos
       ;;
-      
       * )
           eval "dcos $user_command"
       ;;
